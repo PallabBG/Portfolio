@@ -1,0 +1,218 @@
+{
+  "hero": {
+    "photo": "",
+    "badge": "Available for Internships",
+    "firstName": "Pallab",
+    "lastName": "Banerjee",
+    "title": "Full-Stack Developer",
+    "subtitle": "BCA (Hons.) 4-Year AICTE Approved",
+    "extra": "Aspiring Software Engineer Building robust MERN Stack applications & IoT Solutions.",
+    "statusLine": "Currently in 3rd Semester (2024 - 2028).",
+    "resume": "https://raw.githubusercontent.com/PallabBG/portfolio_images/main/assets/resume/resume.pdf"
+  },
+  "about": {
+    "heading": "Hello, I'm Pallab.",
+    "description": "I am a second-year Computer Application student currently pursuing a 4-year <b>BCA degree</b> from the <b>Future Institute of Engineering and Management</b>. I completed my matriculation at <b>Langalberia Surath Smriti Vidyamandir</b> (Arts Stream).\n\nI'm deeply intrigued by how technology drives global change. With a solid foundation in web development, I've built several full-stack projects using <b>HTML, CSS, JavaScript, React, and Node.js</b>. I also have experience in problem-solving through <b>DSA in C</b>. I actively participate in 24-hour hackathons to build practical solutions.",
+    "stats": {
+      "year": "2nd",
+      "role": "Year Student",
+      "projects": "5+",
+      "hackathons": "24h"
+    },
+    "profile": {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/profile/My_Pic.jpg?raw=true",
+      "location": "West Bengal, India",
+      "email": "pallabbanerjee074@gmail.com",
+      "age": "20"
+    }
+  },
+  "skills": [
+    {
+      "title": "Data Structures",
+      "icon": "brain",
+      "tags": [
+        "DSA in C",
+        " Problem Solving",
+        " Logic Building"
+      ]
+    },
+    {
+      "title": "Backend",
+      "icon": "server",
+      "tags": [
+        "Node.js",
+        " Express.js",
+        " REST API",
+        " C",
+        " Python"
+      ]
+    },
+    {
+      "title": "Frontend",
+      "icon": "laptop-code",
+      "tags": [
+        "React.js",
+        " HTML5",
+        " CSS3",
+        " JavaScript",
+        " Bootstrap"
+      ]
+    },
+    {
+      "title": "Tools & DB",
+      "icon": "tools",
+      "tags": [
+        "MongoDB",
+        " Git & GitHub",
+        " VS Code",
+        " Postman"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "MediConnect",
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/projects/Hospital-Tracker-Thumbnail.jpg?raw=true",
+      "live": "https://smart-health-and-hospital-finder.netlify.app/",
+      "github": "https://github.com/PallabBG/MediConnect-Smart-Health-Hospital-Finder/blob/main/MediConnect%20%E2%80%93%20Smart%20Health%20%26%20Hospital%20Finder.zip",
+      "description": "Health-Tech website to find nearby hospitals, book appointments, and access AI HealthBot.",
+      "stack": [
+        "React",
+        " Node.js",
+        " Google Maps"
+      ]
+    },
+    {
+      "name": "AquaFlow Monitor",
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/projects/Water%20flow%20rate%20masure%20Thumbnail.jpg?raw=true",
+      "live": "https://pallab-banerjee.netlify.app/Water%20flow%20rate%20masure%20Thumbnail.jpg",
+      "github": "https://github.com/PallabBG/AquaFlow-Smart-Water-Flow-Monitoring-System/blob/main/Water%20flow%20rate%20masure.pdf",
+      "description": "Arduino-based IoT project measuring real-time water flow rates using sensors.",
+      "stack": [
+        "Arduino",
+        " C++",
+        " IoT"
+      ]
+    },
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/projects/Jarvis%20Thumbnail.png?raw=true",
+      "name": "Jarvis AI Voice",
+      "live": "",
+      "github": "https://github.com/PallabBG/Jarvis-backend",
+      "description": "Personal assistant responding to voice commands using Gemini API and SpeechRecognition.",
+      "stack": [
+        "Python",
+        " Gemini API",
+        " LangChain"
+      ]
+    },
+    {
+      "name": "Lumo AI Chatbot",
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/projects/Lumo-ChatBot%20Thumbnail.png?raw=true",
+      "live": "https://lumo-ai-advanced-smart-chatbot.onrender.com/",
+      "github": "https://github.com/PallabBG/Lumo-AI-Advanced-Smart-Chatbot",
+      "description": "Advanced chatbot with dark/light modes, answering queries with create/delete chat options.",
+      "stack": [
+        "React",
+        " Python",
+        " CSS"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Technical Team Member",
+      "company": "Smart India Hackathon 2025 (Internal)",
+      "duration": "SEP 2025",
+      "description": "Held on 16.09.2025. Part of a 6-member team during 3rd Semester. We developed a comprehensive solution for a 'Smart Traffic Management System' using React.js and Node.js."
+    },
+    {
+      "role": "Full-Stack Developer",
+      "company": "24-Hour Hackathon | Future Institute",
+      "duration": "APR 2025",
+      "description": "Finalist. Held on 12 April 2025 (1st Semester). Collaborated in a 4-member team to build \"MediConnect\", a responsive emergency health locator. I designed the UI using React."
+    },
+    {
+      "role": "IoT Developer",
+      "company": "Innovation Competition | Future Institute",
+      "duration": "MAR 2025",
+      "description": "Held on 21 March 2025 (2nd Sem). Developed \"AquaFlow\", a smart water monitoring system using Arduino, C++, and Flow Sensors (YF-S201)."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Computer Applications (BCA)",
+      "institute": "Future Institute of Engineering and Management (AICTE Approved)",
+      "year": "2024 - 2028 (Pursuing)",
+      "stream": "Computer Application",
+      "icon": "university"
+    },
+    {
+      "degree": "Intermediate & Matriculation",
+      "institute": "Langalberia Surath Smriti Vidyamandir (Arts Stream: Bengali, English, Geography, Education, Psychology)",
+      "year": "Completed",
+      "stream": "Computer Application",
+      "icon": "school"
+    }
+  ],
+  "certificates": [
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/SIH_page-0001.jpg?raw=true",
+      "title": "SIH 2025 Internal",
+      "issuer": "FIEM & Ministry of Education",
+      "year": "2025"
+    },
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/certificate_1744527983652_Pallab_Banerjee(Hackathonix).jpg?raw=true",
+      "title": "Hacktonix 2025",
+      "issuer": "Techno-Management Fest",
+      "year": "2025"
+    },
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/Certificates-Build%20On%20Stacks-Pallab%20Banerjee_page-0001.jpg?raw=true",
+      "title": "Build On Stacks",
+      "issuer": "Blockchain Dev (Rise In)",
+      "year": "2025"
+    },
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/Completion%20Certificate%20_%20SkillsBuild.jpg?raw=true",
+      "title": "Cloud Computing",
+      "issuer": "IBM SkillsBuild",
+      "year": "2025"
+    },
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/Completion%20Certificate%20_%20SkillsBuild2.jpg?raw=true",
+      "title": "Design Thinking",
+      "issuer": "IBM SkillsBuild",
+      "year": "2025"
+    },
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/Inseption-2025.jpg?raw=true",
+      "title": "Inception 2025",
+      "issuer": "Innovative Project (FIEM)",
+      "year": "2025"
+    }
+  ],
+  "socials": [
+    {
+      "url": "https://www.linkedin.com/in/pallab-banerjee-954213312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    },
+    {
+      "url": "https://github.com/PallabBG"
+    },
+    {
+      "url": "https://www.instagram.com/pallab_banerjee2005?igsh=cHNhbWd1aXUyYTJq"
+    },
+    {
+      "url": "https://www.facebook.com/share/16qo7yM6B6/"
+    },
+    {
+      "url": "https://x.com/PallabGames?t=vh3tIEwGHLyfwCKdHLJKAg&s=09"
+    }
+  ],
+  "contact": {
+    "text": "I am currently open to internship opportunities and collaborations. Feel free to reach out!",
+    "email": "pallabbanerjee074@gmail.com"
+  },
+  "footerYear": "2026"
+}
