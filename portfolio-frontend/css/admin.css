@@ -1,0 +1,255 @@
+/* --- 1. CORE RESET & VARIABLES --- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-body: #050507;
+    --bg-panel: #0E0E12;
+    --bg-card: #141419;
+    --text-main: #E0E0E0;
+    --text-muted: #858595;
+    --primary: #00F0FF; 
+    --secondary: #7000FF;
+    --danger: #ff2a6d;
+    --border: 1px solid rgba(255, 255, 255, 0.08);
+    --border-focus: 1px solid #00F0FF;
+    --shadow-glow: 0 0 25px rgba(0, 240, 255, 0.25);
+    --sidebar-width: 260px;
+}
+
+* { box-sizing: border-box; outline: none; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- 2. LOGIN SCREEN (Full Page) --- */
+.login-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #050507;
+    background-image: radial-gradient(circle at center, #1a1a2e 0%, #000 100%);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000;
+    transition: opacity 0.5s ease;
+}
+
+.login-box {
+    background: rgba(20, 20, 25, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 16px;
+    border: var(--border);
+    width: 100%; max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.login-box h2 { font-family: 'JetBrains Mono', monospace; color: var(--primary); margin-bottom: 30px; font-size: 1.5rem; }
+.login-box button { width: 100%; margin-top: 20px; padding: 15px; font-size: 1rem; cursor: pointer; background: var(--primary); border: none; font-weight: bold; border-radius: 6px;}
+
+/* --- 3. DASHBOARD LAYOUT --- */
+#editor {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.admin-sidebar {
+    width: var(--sidebar-width);
+    background: var(--bg-panel);
+    border-right: var(--border);
+    position: fixed;
+    height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.admin-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.4rem; font-weight: 700; color: #fff;
+    margin-bottom: 40px;
+}
+.admin-logo span { color: var(--primary); }
+
+.admin-sidebar nav a {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 15px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+.admin-sidebar nav a:hover { background: rgba(255,255,255,0.05); color: #fff; }
+.admin-sidebar nav a i { width: 20px; text-align: center; }
+
+/* Save Button in Sidebar */
+.save-btn-sidebar {
+    margin-top: auto;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff; border: none; padding: 15px; border-radius: 8px;
+    font-weight: 700; cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 240, 255, 0.3);
+    transition: 0.3s;
+}
+.save-btn-sidebar:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 240, 255, 0.5); }
+
+/* MAIN CONTENT Area */
+.admin-content {
+    margin-left: var(--sidebar-width);
+    flex-grow: 1;
+    padding: 40px 60px;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* --- 4. SECTION CARDS --- */
+.section-card {
+    background: var(--bg-panel);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+    scroll-margin-top: 20px;
+}
+
+.section-card:focus-within {
+    border: var(--border-focus);
+    box-shadow: var(--shadow-glow);
+    background: #111116; 
+}
+.section-card:target {
+    border: var(--border-focus);
+    box-shadow: var(--shadow-glow);
+    animation: pulse 1s ease-in-out;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 rgba(0, 240, 255, 0); }
+    50% { box-shadow: 0 0 30px rgba(0, 240, 255, 0.4); }
+    100% { box-shadow: var(--shadow-glow); }
+}
+
+.section-card h3 {
+    margin: 0 0 25px 0;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--primary);
+    font-size: 1.1rem;
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --- 5. INPUTS --- */
+label {
+    display: block; font-size: 0.85rem; color: var(--text-muted);
+    margin-bottom: 8px; margin-top: 15px; font-weight: 500;
+}
+input, textarea {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+input.code-input { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #a9b1d6; }
+
+input:focus, textarea:focus {
+    border-color: var(--primary);
+    background: rgba(0, 240, 255, 0.03);
+}
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.sub-divider { border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0; }
+
+/* --- 6. ITEM CARDS --- */
+.item-card {
+    background: #121217;
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.item-card:hover { border-color: rgba(255,255,255,0.2); }
+.item-card:focus-within {
+    border-color: var(--secondary);
+}
+
+.card-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 15px; font-size: 0.9rem; color: #fff; font-weight: 600;
+}
+
+/* --- 7. BUTTONS --- */
+.add-btn {
+    width: 100%; padding: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(255,255,255,0.2);
+    color: var(--text-muted);
+    border-radius: 8px; cursor: pointer;
+    margin-top: 15px; transition: 0.2s;
+}
+.add-btn:hover { border-color: var(--primary); color: var(--primary); background: rgba(0,240,255,0.05); }
+
+.remove-btn {
+    background: rgba(255, 42, 109, 0.1); color: var(--danger);
+    border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;
+}
+.remove-btn:hover { background: var(--danger); color: #fff; }
+
+/* --- 8. TOAST NOTIFICATION STYLES --- */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px); /* Hidden below */
+    background: rgba(14, 14, 18, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 16px 30px;
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    z-index: 3000;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0); /* Slide up */
+    opacity: 1;
+}
+
+.toast.success { border-color: var(--primary); color: var(--primary); }
+.toast.error { border-color: var(--danger); color: var(--danger); }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .admin-sidebar { display: none; }
+    .admin-content { margin-left: 0; padding: 20px; }
+    .grid-2 { grid-template-columns: 1fr; }
+}

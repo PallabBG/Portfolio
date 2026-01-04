@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Pallab.dev</title>
+  <link rel="stylesheet" href="css/admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div id="login-screen" class="login-container">
+    <div class="login-box">
+        <h2><i class="fas fa-terminal"></i> SYSTEM ACCESS</h2>
+        <input id="email" placeholder="Admin Email" />
+        <input id="password" type="password" placeholder="Password" />
+        <button onclick="login()">Initialize Session <i class="fas fa-arrow-right"></i></button>
+    </div>
+</div>
+
+<div id="editor" style="display:none;">
+    
+    <aside class="admin-sidebar">
+        <div class="admin-logo">ADMIN<span>.PANEL</span></div>
+        <nav>
+            <a href="#sec-hero" class="active"><i class="fas fa-home"></i> Hero</a>
+            <a href="#sec-about"><i class="fas fa-user"></i> About</a>
+            <a href="#sec-skills"><i class="fas fa-code"></i> Skills</a>
+            <a href="#sec-projects"><i class="fas fa-layer-group"></i> Projects</a>
+            <a href="#sec-experience"><i class="fas fa-briefcase"></i> Experience</a>
+            <a href="#sec-education"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="#sec-certs"><i class="fas fa-certificate"></i> Certs</a>
+            <a href="#sec-contact"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+        <button onclick="save()" class="save-btn-sidebar"><i class="fas fa-save"></i> Save Changes</button>
+    </aside>
+
+    <main class="admin-content">
+        
+        <div id="sec-hero" class="section-card">
+            <h3><i class="fas fa-star"></i> Hero Section</h3>
+            <div class="grid-2">
+                <div><label>First Name</label><input id="firstName" /></div>
+                <div><label>Last Name</label><input id="lastName" /></div>
+            </div>
+            <label>Badge Text</label><input id="badge" />
+            <label>Main Title</label><input id="title" />
+            <div class="grid-2">
+                <div><label>Subtitle</label><input id="subtitle" /></div>
+                <div><label>Extra Line</label><input id="extra" /></div>
+            </div>
+            <label>Status Line</label><input id="statusLine" />
+            <label>Profile Photo URL</label><input id="photo" class="code-input" />
+            <label>Resume Path</label><input id="resume" class="code-input" />
+        </div>
+
+        <div id="sec-about" class="section-card">
+            <h3><i class="fas fa-user-circle"></i> About Section</h3>
+            <label>Heading</label><input id="aboutHeading">
+            <label>Description</label><textarea id="aboutDescription"></textarea>
+            
+            <div class="grid-2">
+                <div><label>Year</label><input id="aboutYear"></div>
+                <div><label>Role</label><input id="aboutRole"></div>
+            </div>
+            <div class="grid-2">
+                <div><label>Projects Count</label><input id="aboutProjects"></div>
+                <div><label>Hackathons</label><input id="aboutHackathons"></div>
+            </div>
+            <hr class="sub-divider">
+            <div class="grid-2">
+                <div><label>About Image URL</label><input id="aboutImage" class="code-input"></div>
+                <div><label>Location</label><input id="aboutLocation"></div>
+            </div>
+            <div class="grid-2">
+                <div><label>Email</label><input id="aboutEmail"></div>
+                <div><label>Age</label><input id="aboutAge"></div>
+            </div>
+        </div>
+
+        <div id="sec-skills" class="section-card">
+            <h3><i class="fas fa-microchip"></i> Skills Arsenal</h3>
+            <div id="skills"></div>
+            <button class="add-btn" onclick="addSkill()">+ Add Skill Group</button>
+        </div>
+
+        <div id="sec-projects" class="section-card">
+            <h3><i class="fas fa-laptop-code"></i> Projects</h3>
+            <div id="projects"></div>
+            <button class="add-btn" onclick="addProject()">+ Add Project</button>
+        </div>
+
+        <div id="sec-experience" class="section-card">
+            <h3><i class="fas fa-briefcase"></i> Experience</h3>
+            <div id="experienceAdminList"></div>
+            <button class="add-btn" type="button" onclick="addExperience()">+ Add Experience</button>
+        </div>
+
+        <div id="sec-education" class="section-card">
+            <h3><i class="fas fa-university"></i> Education</h3>
+            <div id="educationAdminList"></div>
+            <button class="add-btn" id="addEducationBtn" type="button">+ Add Education</button>
+        </div>
+
+        <div id="sec-certs" class="section-card">
+            <h3><i class="fas fa-award"></i> Certificates</h3>
+            <div id="certAdminList"></div>
+            <button class="add-btn" type="button" onclick="addCertificate()">+ Add Certificate</button>
+        </div>
+
+        <div id="sec-contact" class="section-card">
+            <h3><i class="fas fa-paper-plane"></i> Contact & Footer</h3>
+            <label>Contact Message</label>
+            <textarea id="contactTextInput" rows="3"></textarea>
+            
+            <label>Contact Email</label>
+            <input type="email" id="contactEmailInput" />
+
+            <label>Social Links</label>
+            <div id="socialAdminList"></div>
+            <button class="add-btn" type="button" onclick="addSocial()">+ Add Social Link</button>
+
+            <hr class="sub-divider">
+            <label>Footer Year</label>
+            <input type="text" id="footerYearInput">
+        </div>
+
+        <div style="height: 100px;"></div> </main>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<template id="experienceTemplate">
+    <div class="item-card experience-item">
+        <div class="card-header">
+            <span>Experience Item</span>
+            <button class="remove-btn" type="button" onclick="removeExperience(this)"><i class="fas fa-trash"></i></button>
+        </div>
+        <input type="text" placeholder="Role" class="exp-role" />
+        <input type="text" placeholder="Company" class="exp-company" />
+        <input type="text" placeholder="Duration" class="exp-duration" />
+        <textarea placeholder="Description" class="exp-description"></textarea>
+    </div>
+</template>
+
+<template id="certTemplate">
+    <div class="item-card cert-item">
+        <div class="card-header">
+            <span>Certificate</span>
+            <button class="remove-btn" type="button" onclick="this.parentElement.parentElement.remove()"><i class="fas fa-trash"></i></button>
+        </div>
+        <input type="text" class="cert-image code-input" placeholder="Image URL" />
+        <input type="text" class="cert-title" placeholder="Title" />
+        <input type="text" class="cert-issuer" placeholder="Issuer" />
+        <input type="text" class="cert-year" placeholder="Year" />
+    </div>
+</template>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

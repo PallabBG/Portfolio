@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pallab Banerjee | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+
+    <aside class="sidebar">
+        <div class="logo">PALLAB<span>.DEV</span></div>
+        
+        <nav class="nav-links">
+            <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+            <a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a>
+            <a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a>
+            <a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a>
+            <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="#projects" class="nav-link"><i class="fas fa-layer-group"></i> Projects</a>
+            <a href="#certificates" class="nav-link"><i class="fas fa-certificate"></i> Awards</a>
+            <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            &copy; 2025 Pallab B.
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <section id="home" class="hero reveal active">
+            <div>
+                <span class="hero-badge"></span>
+                <h1>
+                    <span class="hero-first-name"></span>
+                    <span class="hero-last-name"></span>
+                </h1>
+                <h2 class="hero-title"></h2>
+                <p class="hero-desc"></p>
+                
+                <div style="display: flex; gap: 15px;">
+                    <a class="btn resume-btn" download>
+                        Download CV <i class="fas fa-download"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="reveal">
+            <span class="mono-header">// 01. INTRODUCTION</span>
+            <h2 class="section-title">About <span>Me</span></h2>
+            
+            <div class="bento-grid">
+                <div class="card">
+                    <h3 id="about-heading" style="font-size: 1.5rem; margin-bottom:15px; color:#fff;"></h3>
+                    <div class="about-description"></div>
+                    <div class="stat-row" id="about-stats"></div>
+                </div>
+                <div class="card about-photo-card">
+                    <img src="" alt="Profile" class="about-photo" />
+
+                    <div class="about-meta">
+                        <div class="about-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="aboutLocationText"></span>
+                        </div>
+                        <div class="about-meta-item">
+                            <i class="fas fa-envelope"></i>
+                            <span id="aboutEmailText"></span>
+                        </div>
+                        <div class="about-meta-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span id="aboutAgeText"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="reveal">
+            <span class="mono-header">// 02. ARSENAL</span>
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="skills-container"></div>
+        </section>
+
+        <section id="experience" class="reveal">
+            <span class="mono-header">// 03. CAREER PATH</span>
+            <h2 class="section-title">Exp<span>erience</span></h2>
+            <div class="experience-list" id="experienceList"></div>
+        </section>
+
+        <section id="education" class="reveal">
+            <span class="mono-header">// 04. ACADEMIC</span>
+            <h2 class="section-title">Edu<span>cation</span></h2>
+            <div id="educationList" class="edu-grid"></div>
+        </section>
+
+        <section id="projects" class="reveal">
+            <span class="mono-header">// 05. PORTFOLIO</span>
+            <h2 class="section-title">Featured <span>Projects</span></h2>
+            <div class="projects-grid"></div>
+        </section>
+
+        <section id="certificates" class="reveal">
+            <span class="mono-header">// 06. AWARDS</span>
+            <h2 class="section-title">Certif<span>icates</span></h2>
+            
+            <div class="cert-scroller" id="certificatesContainer"></div>
+
+            <div class="cert-modal" id="certModal">
+                <span class="cert-close" onclick="closeCertModal()">×</span>
+                <img id="certModalImg" src="">
+            </div>
+        </section>
+
+        <section id="contact" class="reveal">
+            <div class="contact-section">
+                <h2 class="section-title" style="margin-bottom: 20px;">Get In <span>Touch</span></h2>
+                <p id="contactText" style="color:var(--text-muted); max-width:500px; margin: 0 auto 30px auto; line-height: 1.6;"></p>
+                
+                <a id="contactEmailBtn" class="btn">
+                    Say Hello <i class="fas fa-paper-plane"></i>
+                </a>
+                
+                <br>
+                <div id="socialLinks" class="social-dock"></div>
+            </div>
+        </section>
+
+        <p class="footer" id="footerText">
+            Designed & Built by Pallab Banerjee | <span id="footerYear">2025</span>
+        </p>
+
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
