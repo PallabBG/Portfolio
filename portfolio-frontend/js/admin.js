@@ -61,12 +61,15 @@ function loadData() {
 
       document.getElementById("experienceAdminList").innerHTML = "";
       (siteData.experience || []).forEach(exp => addExperience(exp));
+      updateIndexes('experienceAdminList', 'Experience');
 
       document.getElementById("certAdminList").innerHTML = "";
       (siteData.certificates || []).forEach(c => addCertificate(c));
+      updateIndexes('certAdminList', 'Certificate');
 
       document.getElementById("educationAdminList").innerHTML = "";
       (siteData.education || []).forEach(edu => addEducation(edu));
+      updateIndexes('educationAdminList', 'Education');
 
       document.getElementById("socialAdminList").innerHTML = "";
       (siteData.socials || []).forEach(s => addSocial(s));
@@ -78,6 +81,18 @@ function loadData() {
       document.getElementById("footerYearInput").value = siteData.footerYear || "2025";
     })
     .catch(e => console.error("Error loading data:", e));
+}
+
+/* ---------- HELPER: UPDATE NUMBERS (Item 1, Item 2...) ---------- */
+function updateIndexes(containerId, namePrefix) {
+    const container = document.getElementById(containerId);
+    const items = container.querySelectorAll('.item-card');
+    items.forEach((item, index) => {
+        const title = item.querySelector('.item-title') || item.querySelector('.card-header span');
+        if(title) {
+            title.innerText = `${namePrefix} ${index + 1}`;
+        }
+    });
 }
 
 /* ---------- FILL BASIC SECTIONS ---------- */
@@ -108,7 +123,7 @@ function fillAbout() {
   document.getElementById('aboutAge').value = siteData.about?.profile?.age || '';
 }
 
-/* ---------- RENDER DYNAMIC LISTS ---------- */
+/* ---------- SKILLS ---------- */
 function renderSkills() {
   const container = document.getElementById('skills');
   container.innerHTML = '';
@@ -120,10 +135,11 @@ function renderSkills() {
             <button class="remove-btn" onclick="siteData.skills.splice(${i},1);renderSkills()">Remove</button>
         </div>
         <div class="grid-2">
-            <input placeholder="Title" value="${s.title || ''}" onchange="siteData.skills[${i}].title=this.value" />
-            <input placeholder="Icon (fas fa-code)" value="${s.icon || ''}" onchange="siteData.skills[${i}].icon=this.value" />
+            <div><label>Group Title</label><input placeholder="e.g. Frontend" value="${s.title || ''}" onchange="siteData.skills[${i}].title=this.value" /></div>
+            <div><label>Icon Class</label><input placeholder="e.g. code" value="${s.icon || ''}" onchange="siteData.skills[${i}].icon=this.value" /></div>
         </div>
-        <input placeholder="Tags (React, Node, etc)" value="${(s.tags || []).join(',')}" onchange="siteData.skills[${i}].tags=this.value.split(',')" />
+        <label>Tags (Comma Separated)</label>
+        <input placeholder="e.g. React, HTML, CSS" value="${(s.tags || []).join(',')}" onchange="siteData.skills[${i}].tags=this.value.split(',')" />
       </div>`;
   });
 }
@@ -132,6 +148,7 @@ function addSkill() {
   renderSkills();
 }
 
+/* ---------- PROJECTS ---------- */
 function renderProjects() {
   const container = document.getElementById('projects');
   container.innerHTML = '';
@@ -139,19 +156,22 @@ function renderProjects() {
     container.innerHTML += `
       <div class="item-card">
          <div class="card-header">
-            <span>Project: ${p.name || 'New'}</span>
+            <span>Project ${i+1}</span>
             <button class="remove-btn" onclick="siteData.projects.splice(${i},1);renderProjects()">Remove</button>
         </div>
         <div class="grid-2">
-            <input placeholder="Project Name" value="${p.name || ''}" onchange="siteData.projects[${i}].name=this.value" />
-            <input placeholder="Image URL" class="code-input" value="${p.image || ''}" onchange="siteData.projects[${i}].image=this.value" />
+            <div><label>Project Name</label><input placeholder="Name" value="${p.name || ''}" onchange="siteData.projects[${i}].name=this.value" /></div>
+            <div><label>Image URL</label><input placeholder="https://..." class="code-input" value="${p.image || ''}" onchange="siteData.projects[${i}].image=this.value" /></div>
         </div>
         <div class="grid-2">
-            <input placeholder="Live URL" class="code-input" value="${p.live||''}" onchange="siteData.projects[${i}].live=this.value" />
-            <input placeholder="GitHub URL" class="code-input" value="${p.github||''}" onchange="siteData.projects[${i}].github=this.value" />
+            <div><label>Live Link</label><input placeholder="https://..." class="code-input" value="${p.live||''}" onchange="siteData.projects[${i}].live=this.value" /></div>
+            <div><label>GitHub Link</label><input placeholder="https://..." class="code-input" value="${p.github||''}" onchange="siteData.projects[${i}].github=this.value" /></div>
         </div>
-        <textarea placeholder="Description" onchange="siteData.projects[${i}].description=this.value">${p.description||''}</textarea>
-        <input placeholder="Stack (comma separated)" value="${(p.stack||[]).join(',')}" onchange="siteData.projects[${i}].stack=this.value.split(',')" />
+        <label>Description</label>
+        <textarea placeholder="Short description..." onchange="siteData.projects[${i}].description=this.value">${p.description||''}</textarea>
+        
+        <label>Tech Stack</label>
+        <input placeholder="e.g. React, Node.js" value="${(p.stack||[]).join(',')}" onchange="siteData.projects[${i}].stack=this.value.split(',')" />
       </div>`;
   });
 }
@@ -160,6 +180,7 @@ function addProject() {
   renderProjects();
 }
 
+/* ---------- EXPERIENCE ---------- */
 function addExperience(data = {}) {
   const t = document.getElementById("experienceTemplate");
   const clone = t.content.cloneNode(true);
@@ -167,10 +188,16 @@ function addExperience(data = {}) {
   clone.querySelector(".exp-company").value = data.company || "";
   clone.querySelector(".exp-duration").value = data.duration || "";
   clone.querySelector(".exp-description").value = data.description || "";
+  
   document.getElementById("experienceAdminList").appendChild(clone);
+  updateIndexes('experienceAdminList', 'Experience');
 }
-function removeExperience(btn) { btn.closest(".experience-item").remove(); }
+function removeExperience(btn) { 
+    btn.closest(".experience-item").remove(); 
+    updateIndexes('experienceAdminList', 'Experience');
+}
 
+/* ---------- CERTIFICATES ---------- */
 function addCertificate(data = {}) {
   const t = document.getElementById("certTemplate");
   const clone = t.content.cloneNode(true);
@@ -178,45 +205,57 @@ function addCertificate(data = {}) {
   clone.querySelector(".cert-title").value = data.title || "";
   clone.querySelector(".cert-issuer").value = data.issuer || "";
   clone.querySelector(".cert-year").value = data.year || "";
+  
   document.getElementById("certAdminList").appendChild(clone);
+  updateIndexes('certAdminList', 'Certificate');
+}
+function removeCertificate(btn) {
+    btn.closest(".cert-item").remove();
+    updateIndexes('certAdminList', 'Certificate');
 }
 
+/* ---------- EDUCATION ---------- */
 function addEducation(edu = {}) {
   const container = document.getElementById("educationAdminList");
   const item = document.createElement("div");
   item.className = "item-card education-item";
   item.innerHTML = `
     <div class="card-header" style="grid-column: span 2">
-        <span>Education</span>
-        <button class="remove-btn" onclick="this.closest('.education-item').remove()">Remove</button>
+        <span class="item-title">Education Item</span>
+        <button class="remove-btn" onclick="this.closest('.education-item').remove(); updateIndexes('educationAdminList', 'Education');">Remove</button>
     </div>
     <div class="grid-2">
-        <input class="edu-degree" placeholder="Degree" value="${edu.degree||''}"/>
-        <input class="edu-institute" placeholder="Institute" value="${edu.institute||''}"/>
+        <div><label>Degree</label><input class="edu-degree" placeholder="e.g. BCA" value="${edu.degree||''}"/></div>
+        <div><label>Institute</label><input class="edu-institute" placeholder="e.g. Techno India" value="${edu.institute||''}"/></div>
     </div>
     <div class="grid-2">
-        <input class="edu-year" placeholder="Year" value="${edu.year||''}"/>
-        <input class="edu-stream" placeholder="Stream" value="${edu.stream||''}"/>
+        <div><label>Year</label><input class="edu-year" placeholder="e.g. 2024-2028" value="${edu.year||''}"/></div>
+        <div><label>Stream</label><input class="edu-stream" placeholder="e.g. Computer Science" value="${edu.stream||''}"/></div>
     </div>
-    <input class="edu-icon" placeholder="Icon Class (e.g. graduation-cap)" value="${edu.icon||''}"/>
+    <label>Icon</label>
+    <input class="edu-icon" placeholder="e.g. graduation-cap" value="${edu.icon||''}"/>
   `;
   container.appendChild(item);
+  updateIndexes('educationAdminList', 'Education');
 }
-document.getElementById("addEducationBtn").onclick = () => addEducation();
 
+/* ---------- SOCIALS ---------- */
 function addSocial(data = {}) {
     const div = document.createElement("div");
     div.className = "item-card social-item";
     div.innerHTML = `
-        <div style="display:flex; gap:10px; width:100%;">
-            <input type="text" class="social-url code-input" placeholder="https://..." value="${data.url || ""}">
-            <button class="remove-btn" onclick="this.parentElement.parentElement.remove()">Remove</button>
+        <div style="display:flex; gap:10px; width:100%; align-items:flex-end;">
+            <div style="flex-grow:1">
+                <label>Social URL</label>
+                <input type="text" class="social-url code-input" placeholder="https://..." value="${data.url || ""}">
+            </div>
+            <button class="remove-btn" style="margin-bottom:12px;" onclick="this.parentElement.parentElement.remove()">Remove</button>
         </div>
     `;
     document.getElementById("socialAdminList").appendChild(div);
 }
 
-/* ---------- SAVE FUNCTION WITH TOAST ---------- */
+/* ---------- SAVE ---------- */
 function save() {
     const getData = (sel) => document.getElementById(sel).value;
 
@@ -304,29 +343,19 @@ function save() {
         return res.json();
     })
     .then(() => {
-        // 🔥 SHOW SUCCESS TOAST
         showToast('Changes Saved Successfully!', 'success');
     })
     .catch(err => {
         console.error(err);
-        // 🔥 SHOW ERROR TOAST
         showToast('Save Failed. Check Console.', 'error');
     });
 }
 
-/* ---------- TOAST NOTIFICATION LOGIC ---------- */
 function showToast(message, type = 'success') {
     const toast = document.getElementById('toast');
-    
-    // Icon based on type
-    const icon = type === 'success' 
-        ? '<i class="fas fa-check-circle"></i>' 
-        : '<i class="fas fa-exclamation-triangle"></i>';
-
+    const icon = type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-triangle"></i>';
     toast.innerHTML = `${icon} ${message}`;
     toast.className = `toast ${type} show`;
-
-    // Hide after 3 seconds
     setTimeout(() => {
         toast.classList.remove('show');
     }, 3000);

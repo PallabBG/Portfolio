@@ -41,41 +41,41 @@
         <div id="sec-hero" class="section-card">
             <h3><i class="fas fa-star"></i> Hero Section</h3>
             <div class="grid-2">
-                <div><label>First Name</label><input id="firstName" /></div>
-                <div><label>Last Name</label><input id="lastName" /></div>
+                <div><label>First Name</label><input id="firstName" placeholder="e.g. Pallab" /></div>
+                <div><label>Last Name</label><input id="lastName" placeholder="e.g. Banerjee" /></div>
             </div>
-            <label>Badge Text</label><input id="badge" />
-            <label>Main Title</label><input id="title" />
+            <label>Badge Text</label><input id="badge" placeholder="e.g. Portfolio" />
+            <label>Main Title</label><input id="title" placeholder="e.g. Full Stack Developer" />
             <div class="grid-2">
-                <div><label>Subtitle</label><input id="subtitle" /></div>
-                <div><label>Extra Line</label><input id="extra" /></div>
+                <div><label>Subtitle</label><input id="subtitle" placeholder="e.g. Aspiring Software Engineer" /></div>
+                <div><label>Extra Line</label><input id="extra" placeholder="e.g. Building robust MERN Solutions" /></div>
             </div>
-            <label>Status Line</label><input id="statusLine" />
-            <label>Profile Photo URL</label><input id="photo" class="code-input" />
-            <label>Resume Path</label><input id="resume" class="code-input" />
+            <label>Status Line</label><input id="statusLine" placeholder="e.g. Currently in 3rd Semester" />
+            <label>Profile Photo URL</label><input id="photo" class="code-input" placeholder="https://github.com/.../profile.jpg" />
+            <label>Resume Path</label><input id="resume" class="code-input" placeholder="/resume.pdf" />
         </div>
 
         <div id="sec-about" class="section-card">
             <h3><i class="fas fa-user-circle"></i> About Section</h3>
-            <label>Heading</label><input id="aboutHeading">
-            <label>Description</label><textarea id="aboutDescription"></textarea>
+            <label>Heading</label><input id="aboutHeading" placeholder="e.g. I create digital experiences...">
+            <label>Description</label><textarea id="aboutDescription" placeholder="Write a short bio about yourself..."></textarea>
             
             <div class="grid-2">
-                <div><label>Year</label><input id="aboutYear"></div>
-                <div><label>Role</label><input id="aboutRole"></div>
+                <div><label>Years of Experience</label><input id="aboutYear" placeholder="e.g. 2+"></div>
+                <div><label>Current Role</label><input id="aboutRole" placeholder="e.g. Student / Freelancer"></div>
             </div>
             <div class="grid-2">
-                <div><label>Projects Count</label><input id="aboutProjects"></div>
-                <div><label>Hackathons</label><input id="aboutHackathons"></div>
+                <div><label>Projects Completed</label><input id="aboutProjects" placeholder="e.g. 15"></div>
+                <div><label>Hackathons Won</label><input id="aboutHackathons" placeholder="e.g. 3"></div>
             </div>
             <hr class="sub-divider">
             <div class="grid-2">
-                <div><label>About Image URL</label><input id="aboutImage" class="code-input"></div>
-                <div><label>Location</label><input id="aboutLocation"></div>
+                <div><label>About Image URL</label><input id="aboutImage" class="code-input" placeholder="Image URL"></div>
+                <div><label>Location</label><input id="aboutLocation" placeholder="e.g. Kolkata, India"></div>
             </div>
             <div class="grid-2">
-                <div><label>Email</label><input id="aboutEmail"></div>
-                <div><label>Age</label><input id="aboutAge"></div>
+                <div><label>Email Address</label><input id="aboutEmail" placeholder="e.g. mail@example.com"></div>
+                <div><label>Age</label><input id="aboutAge" placeholder="e.g. 21"></div>
             </div>
         </div>
 
@@ -100,7 +100,7 @@
         <div id="sec-education" class="section-card">
             <h3><i class="fas fa-university"></i> Education</h3>
             <div id="educationAdminList"></div>
-            <button class="add-btn" id="addEducationBtn" type="button">+ Add Education</button>
+            <button class="add-btn" id="addEducationBtn" type="button" onclick="addEducation()">+ Add Education</button>
         </div>
 
         <div id="sec-certs" class="section-card">
@@ -112,10 +112,10 @@
         <div id="sec-contact" class="section-card">
             <h3><i class="fas fa-paper-plane"></i> Contact & Footer</h3>
             <label>Contact Message</label>
-            <textarea id="contactTextInput" rows="3"></textarea>
+            <textarea id="contactTextInput" rows="3" placeholder="Message shown on contact section..."></textarea>
             
             <label>Contact Email</label>
-            <input type="email" id="contactEmailInput" />
+            <input type="email" id="contactEmailInput" placeholder="Email for the 'Say Hello' button" />
 
             <label>Social Links</label>
             <div id="socialAdminList"></div>
@@ -123,10 +123,11 @@
 
             <hr class="sub-divider">
             <label>Footer Year</label>
-            <input type="text" id="footerYearInput">
+            <input type="text" id="footerYearInput" placeholder="2025">
         </div>
 
-        <div style="height: 100px;"></div> </main>
+        <div style="height: 100px;"></div>
+    </main>
 </div>
 
 <div id="toast" class="toast"></div>
@@ -134,26 +135,40 @@
 <template id="experienceTemplate">
     <div class="item-card experience-item">
         <div class="card-header">
-            <span>Experience Item</span>
-            <button class="remove-btn" type="button" onclick="removeExperience(this)"><i class="fas fa-trash"></i></button>
+            <span class="item-title">Experience Item</span>
+            <button class="remove-btn" type="button" onclick="removeExperience(this)"><i class="fas fa-trash"></i> Remove</button>
         </div>
-        <input type="text" placeholder="Role" class="exp-role" />
-        <input type="text" placeholder="Company" class="exp-company" />
-        <input type="text" placeholder="Duration" class="exp-duration" />
-        <textarea placeholder="Description" class="exp-description"></textarea>
+        <label>Job Role</label>
+        <input type="text" placeholder="e.g. Frontend Intern" class="exp-role" />
+        
+        <label>Company Name</label>
+        <input type="text" placeholder="e.g. Google" class="exp-company" />
+        
+        <label>Duration</label>
+        <input type="text" placeholder="e.g. Jan 2024 - Present" class="exp-duration" />
+        
+        <label>Description</label>
+        <textarea placeholder="Describe your responsibilities..." class="exp-description"></textarea>
     </div>
 </template>
 
 <template id="certTemplate">
     <div class="item-card cert-item">
         <div class="card-header">
-            <span>Certificate</span>
-            <button class="remove-btn" type="button" onclick="this.parentElement.parentElement.remove()"><i class="fas fa-trash"></i></button>
+            <span class="item-title">Certificate</span>
+            <button class="remove-btn" type="button" onclick="removeCertificate(this)"><i class="fas fa-trash"></i> Remove</button>
         </div>
-        <input type="text" class="cert-image code-input" placeholder="Image URL" />
-        <input type="text" class="cert-title" placeholder="Title" />
-        <input type="text" class="cert-issuer" placeholder="Issuer" />
-        <input type="text" class="cert-year" placeholder="Year" />
+        <label>Certificate Image URL</label>
+        <input type="text" class="cert-image code-input" placeholder="https://..." />
+        
+        <label>Certificate Title</label>
+        <input type="text" class="cert-title" placeholder="e.g. AWS Certified Practitioner" />
+        
+        <label>Issuer / Organization</label>
+        <input type="text" class="cert-issuer" placeholder="e.g. Amazon Web Services" />
+        
+        <label>Year</label>
+        <input type="text" class="cert-year" placeholder="e.g. 2024" />
     </div>
 </template>
 
