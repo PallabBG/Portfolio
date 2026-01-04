@@ -3,7 +3,7 @@
     /* Palette: Deep Cyber-Blue & Neon Teal */
     --bg-body: #050507;
     --bg-panel: #0E0E12;
-    --bg-card: rgba(20, 20, 25, 0.6); /* More transparency for glass effect */
+    --bg-card: rgba(20, 20, 25, 0.6);
     --text-main: #E0E0E0;
     --text-muted: #9494a0;
     --primary: #00F0FF; /* Electric Cyan */
@@ -149,12 +149,11 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
     color: var(--primary);
     margin-bottom: 25px;
     font-size: 1.8rem;
-    height: 1.8rem; /* Keeps layout stable during typing */
+    height: 1.8rem;
     display: flex;
     align-items: center;
 }
 
-/* Typing Cursor */
 .hero-title::after {
     content: '|';
     animation: blink 1s step-start infinite;
@@ -202,7 +201,7 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
 
 .card {
     background: var(--bg-card);
-    backdrop-filter: blur(12px); /* Glassmorphism */
+    backdrop-filter: blur(12px);
     border: var(--border);
     padding: 40px;
     border-radius: 20px;
@@ -231,7 +230,7 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
 .about-meta-item { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-muted); }
 .about-meta-item i { color: var(--primary); font-size: 1rem; width: 20px; text-align: center; text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
 
-/* --- 6. SKILLS (Floating Chips) --- */
+/* --- 6. SKILLS --- */
 .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
 .skill-group {
     background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
@@ -241,10 +240,8 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
     transition: 0.3s;
 }
 .skill-group:hover { border-color: var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.1); transform: translateY(-5px); }
-
 .skill-group h3 { font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-weight: 600; }
 .skill-group h3 i { color: var(--secondary); font-size: 1.2rem; }
-
 .tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .tag {
     background: rgba(255,255,255,0.05); color: #ccc;
@@ -255,13 +252,12 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
 }
 .tag:hover { background: rgba(0, 240, 255, 0.1); color: var(--primary); border-color: rgba(0, 240, 255, 0.3); }
 
-/* --- 7. EXPERIENCE (Enhanced Timeline) --- */
+/* --- 7. EXPERIENCE --- */
 .experience-list { position: relative; padding-left: 50px; display: flex; flex-direction: column; gap: 50px; }
 .experience-list::before {
     content: ""; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px;
     background: linear-gradient(to bottom, var(--primary), var(--secondary), transparent);
 }
-
 .experience-card {
     background: linear-gradient(145deg, rgba(20, 20, 25, 0.8), rgba(20, 20, 25, 0.4));
     border: 1px solid rgba(255,255,255,0.05);
@@ -273,7 +269,6 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
     box-shadow: 0 0 15px var(--primary);
     z-index: 2;
 }
-
 .experience-card h3 { font-size: 1.4rem; margin-bottom: 5px; color: #fff; }
 .exp-company { font-size: 1rem; color: var(--secondary); margin-bottom: 15px; font-weight: 600; }
 .exp-duration { 
@@ -292,7 +287,6 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
     display: flex; gap: 20px; transition: 0.3s;
 }
 .edu-item:hover { border-color: rgba(0, 240, 255, 0.3); transform: translateY(-5px); }
-
 .edu-icon {
     width: 60px; height: 60px; background: rgba(255,255,255,0.03); border-radius: 12px;
     display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.8rem;
@@ -302,7 +296,7 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
 .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 10px; }
 .edu-institute { font-weight: 600; color: #fff; margin-bottom: 5px; }
 
-/* --- 9. PROJECTS (Visual Portfolio) --- */
+/* --- 9. PROJECTS --- */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
 .project-card {
     background: rgba(20, 20, 25, 0.6); border: 1px solid rgba(255,255,255,0.05); 
@@ -310,17 +304,14 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .project-card:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); }
-
 .project-img-wrapper { position: relative; height: 200px; overflow: hidden; }
 .project-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 .project-card:hover img { transform: scale(1.1); filter: brightness(0.4); }
-
 .overlay-actions {
     position: absolute; inset: 0; display: flex; gap: 20px;
     justify-content: center; align-items: center; opacity: 0; transition: 0.3s;
 }
 .project-card:hover .overlay-actions { opacity: 1; }
-
 .action-btn {
     width: 50px; height: 50px; background: #fff; color: #000; border-radius: 50%;
     display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
@@ -328,7 +319,6 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
 }
 .project-card:hover .action-btn { transform: translateY(0); }
 .action-btn:hover { background: var(--primary); }
-
 .project-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
 .project-content h3 { font-size: 1.3rem; margin-bottom: 10px; color: #fff; }
 .project-content p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
@@ -360,37 +350,101 @@ section { margin-bottom: 180px; scroll-margin-top: 50px; }
 }
 .contact-section:hover { border-color: rgba(0, 240, 255, 0.2); box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); }
 
-.social-dock { display: inline-flex; gap: 20px; padding: 15px 30px; background: rgba(255,255,255,0.02); border-radius: 50px; margin-top: 40px; border: 1px solid rgba(255,255,255,0.05); }
+/* 🔥 SOCIAL FIX: Default */
+.social-dock { 
+    display: inline-flex; gap: 20px; padding: 15px 30px; 
+    background: rgba(255,255,255,0.02); border-radius: 50px; margin-top: 40px; 
+    border: 1px solid rgba(255,255,255,0.05); 
+    flex-wrap: wrap; /* Allows wrapping */
+    justify-content: center;
+    max-width: 100%;
+}
+
 .social-icon { 
     width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
     border-radius: 50%; color: var(--text-muted); transition: 0.3s; background: rgba(255,255,255,0.05);
     font-size: 1.2rem;
+    flex-shrink: 0;
 }
 .social-icon:hover { background: #fff; color: #000; transform: translateY(-5px) scale(1.1); box-shadow: 0 0 20px rgba(255,255,255,0.5); }
 
 .footer { text-align: center; padding: 50px 0 20px; color: rgba(255,255,255,0.4); font-size: 0.9rem; }
 
-/* --- MODAL --- */
+/* --- 12. MODAL LOGIC (FIXED) --- */
 .cert-modal { 
-    position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; 
+    position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; 
     align-items: center; justify-content: center; z-index: 2000; backdrop-filter: blur(10px);
     opacity: 0; transition: opacity 0.3s ease;
 }
 .cert-modal.active { opacity: 1; }
-.cert-modal img { max-width: 85%; max-height: 85%; border-radius: 12px; border: 2px solid var(--primary); box-shadow: 0 0 50px rgba(0, 240, 255, 0.2); transform: scale(0.9); transition: 0.3s; }
+.cert-modal img { 
+    max-width: 90%; max-height: 80vh; 
+    border-radius: 12px; border: 2px solid var(--primary); 
+    box-shadow: 0 0 50px rgba(0, 240, 255, 0.2); 
+    transform: scale(0.9); transition: 0.3s; 
+}
 .cert-modal.active img { transform: scale(1); }
-.cert-close { position: absolute; top: 30px; right: 40px; font-size: 3rem; color: #fff; cursor: pointer; transition: 0.3s; }
-.cert-close:hover { color: var(--primary); transform: rotate(90deg); }
 
-/* --- RESPONSIVE --- */
+/* 🔥 CLOSE BUTTON FIX */
+.cert-close { 
+    position: absolute; 
+    top: 20px; right: 20px; /* Moves closer to corner */
+    font-size: 2rem; 
+    color: #fff; /* White Icon */
+    background: rgba(0,0,0,0.6); /* Dark background to see on white certs */
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; 
+    transition: 0.3s; 
+    z-index: 2010; /* Ensures it's on top of image */
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.cert-close:hover { 
+    background: var(--primary); 
+    color: #000; 
+    transform: rotate(90deg); 
+}
+
+/* --- RESPONSIVE FIXES --- */
 @media (max-width: 1024px) {
     body { flex-direction: column; }
     .sidebar { width: 100%; height: auto; padding: 20px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; flex-direction: row; align-items: center; }
-    .nav-links { display: none; } /* Mobile Menu would go here */
+    .nav-links { display: none; } 
     .main-content { margin-left: 0; width: 100%; padding: 50px 25px; }
     .hero h1 { font-size: 3.2rem; }
     .bento-grid { grid-template-columns: 1fr; }
     .sidebar-footer { display: none; }
     .edu-grid { grid-template-columns: 1fr; }
     .exp-duration { position: relative; top: 0; right: 0; display: inline-block; margin-bottom: 10px; }
+}
+
+/* 🔥 MOBILE SPECIFIC FIXES (Under 768px) */
+@media (max-width: 768px) {
+    /* Fix Social Dock Overflow */
+    .contact-section { padding: 40px 20px; }
+    
+    .social-dock {
+        width: 100%; /* Force width */
+        display: flex; /* Flexbox */
+        flex-wrap: wrap; /* Wrap if too many icons */
+        justify-content: center; /* Center them */
+        gap: 15px; /* Smaller gap */
+        padding: 15px; /* Smaller padding */
+        border-radius: 20px;
+    }
+    
+    /* Fix Close Button on Small Screens */
+    .cert-close {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+    
+    /* Ensure modal image doesn't touch edges */
+    .cert-modal img {
+        max-width: 95%;
+    }
 }
