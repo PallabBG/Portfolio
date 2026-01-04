@@ -1,4 +1,4 @@
-const BACKEND = 'https://portfolio-backend-4fbc.onrender.com';
+const BACKEND = 'https://portfolio-backend-4fbc.onrender.com'; // Keep this for Admin Login/Saving
 let TOKEN = '';
 let siteData = {};
 
@@ -41,6 +41,7 @@ function loadData() {
   fetch(`${BACKEND}/site-data.json`)
     .then(r => r.json())
     .then(d => {
+      // Map backend data to local structure
       siteData = {
         hero: d.hero || {},
         about: d.about || {},
@@ -58,7 +59,8 @@ function loadData() {
       fillAbout();
       renderSkills();
       renderProjects();
-
+      
+      // Clear and Fill Lists
       document.getElementById("experienceAdminList").innerHTML = "";
       (siteData.experience || []).forEach(exp => addExperience(exp));
       updateIndexes('experienceAdminList', 'Experience');
@@ -83,7 +85,7 @@ function loadData() {
     .catch(e => console.error("Error loading data:", e));
 }
 
-/* ---------- HELPER: UPDATE NUMBERS (Item 1, Item 2...) ---------- */
+/* ---------- HELPER: UPDATE NUMBERS ---------- */
 function updateIndexes(containerId, namePrefix) {
     const container = document.getElementById(containerId);
     const items = container.querySelectorAll('.item-card');
@@ -111,12 +113,10 @@ function fillHero() {
 function fillAbout() {
   document.getElementById('aboutHeading').value = siteData.about?.heading || '';
   document.getElementById('aboutDescription').value = siteData.about?.description || '';
-  
   document.getElementById('aboutYear').value = siteData.about?.stats?.year || '';
   document.getElementById('aboutRole').value = siteData.about?.stats?.role || '';
   document.getElementById('aboutProjects').value = siteData.about?.stats?.projects || '';
   document.getElementById('aboutHackathons').value = siteData.about?.stats?.hackathons || '';
-  
   document.getElementById('aboutImage').value = siteData.about?.profile?.image || '';
   document.getElementById('aboutLocation').value = siteData.about?.profile?.location || '';
   document.getElementById('aboutEmail').value = siteData.about?.profile?.email || '';
@@ -169,7 +169,6 @@ function renderProjects() {
         </div>
         <label>Description</label>
         <textarea placeholder="Short description..." onchange="siteData.projects[${i}].description=this.value">${p.description||''}</textarea>
-        
         <label>Tech Stack</label>
         <input placeholder="e.g. React, Node.js" value="${(p.stack||[]).join(',')}" onchange="siteData.projects[${i}].stack=this.value.split(',')" />
       </div>`;
@@ -188,7 +187,6 @@ function addExperience(data = {}) {
   clone.querySelector(".exp-company").value = data.company || "";
   clone.querySelector(".exp-duration").value = data.duration || "";
   clone.querySelector(".exp-description").value = data.description || "";
-  
   document.getElementById("experienceAdminList").appendChild(clone);
   updateIndexes('experienceAdminList', 'Experience');
 }
@@ -205,7 +203,6 @@ function addCertificate(data = {}) {
   clone.querySelector(".cert-title").value = data.title || "";
   clone.querySelector(".cert-issuer").value = data.issuer || "";
   clone.querySelector(".cert-year").value = data.year || "";
-  
   document.getElementById("certAdminList").appendChild(clone);
   updateIndexes('certAdminList', 'Certificate');
 }
@@ -255,8 +252,8 @@ function addSocial(data = {}) {
     document.getElementById("socialAdminList").appendChild(div);
 }
 
-/* ---------- SAVE ---------- */
-function save() {
+/* ---------- COLLECT DATA ---------- */
+function collectData() {
     const getData = (sel) => document.getElementById(sel).value;
 
     siteData.hero = {
@@ -329,6 +326,11 @@ function save() {
         if (url) siteData.socials.push({ url });
     });
     siteData.footerYear = getData("footerYearInput");
+}
+
+/* ---------- SAVE TO BACKEND ---------- */
+function save() {
+    collectData(); // Update siteData object
 
     fetch(`${BACKEND}/api/site`, {
         method: 'PUT',
@@ -343,7 +345,7 @@ function save() {
         return res.json();
     })
     .then(() => {
-        showToast('Changes Saved Successfully!', 'success');
+        showToast('Changes Saved to Backend!', 'success');
     })
     .catch(err => {
         console.error(err);
@@ -351,6 +353,25 @@ function save() {
     });
 }
 
+/* ---------- 🔥 DOWNLOAD CONFIG (THE NEW MAGIC BUTTON) ---------- */
+function downloadConfig() {
+    collectData(); // Ensure we have latest data
+    const dataStr = JSON.stringify(siteData, null, 2);
+    const blob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = "site-data.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showToast('Config Downloaded! Place it in your project.', 'success');
+}
+
+/* ---------- TOAST ---------- */
 function showToast(message, type = 'success') {
     const toast = document.getElementById('toast');
     const icon = type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-triangle"></i>';

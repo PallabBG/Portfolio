@@ -1,6 +1,16 @@
-fetch('https://portfolio-backend-4fbc.onrender.com/site-data.json')
-  .then(res => res.json())
+/* 🔥 FAST LOAD CONFIGURATION 
+   Instead of fetching from localhost:4000 or Render, 
+   we fetch the local JSON file. 
+*/
+fetch('./site-data.json') 
+  .then(res => {
+      if (!res.ok) throw new Error("Could not load local data");
+      return res.json();
+  })
   .then(data => {
+
+    /* ================= HERO ================= */
+    // ... rest of your code remains exactly the same ...
 
     /* ================= HERO ================= */
     const heroImg = document.querySelector('.about-photo');
