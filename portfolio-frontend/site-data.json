@@ -85,25 +85,13 @@
     {
       "name": "AquaFlow Monitor",
       "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/projects/Water%20flow%20rate%20masure%20Thumbnail.jpg?raw=true",
-      "live": "https://pallab-banerjee.netlify.app/Water%20flow%20rate%20masure%20Thumbnail.jpg",
+      "live": "https://github.com/PallabBG/portfolio_images/blob/main/assets/projects/Water%20flow%20rate%20masure%20Thumbnail.jpg?raw=true",
       "github": "https://github.com/PallabBG/AquaFlow-Smart-Water-Flow-Monitoring-System/blob/main/Water%20flow%20rate%20masure.pdf",
       "description": "Arduino-based IoT project measuring real-time water flow rates using sensors.",
       "stack": [
         "Arduino",
         " C++",
         " IoT"
-      ]
-    },
-    {
-      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/projects/Jarvis%20Thumbnail.png?raw=true",
-      "name": "Jarvis AI Voice",
-      "live": "",
-      "github": "https://github.com/PallabBG/Jarvis-backend",
-      "description": "Personal assistant responding to voice commands using Gemini API and SpeechRecognition.",
-      "stack": [
-        "Python",
-        " Gemini API",
-        " LangChain"
       ]
     },
     {
