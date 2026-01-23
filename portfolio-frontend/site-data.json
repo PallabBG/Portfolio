@@ -77,9 +77,18 @@
       "github": "https://github.com/PallabBG/MediConnect-Smart-Health-Hospital-Finder/blob/main/MediConnect%20%E2%80%93%20Smart%20Health%20%26%20Hospital%20Finder.zip",
       "description": "Health-Tech website to find nearby hospitals, book appointments, and access AI HealthBot.",
       "stack": [
-        "React",
+        "HTML5",
+        " CSS3",
+        " JavaScript",
         " Node.js",
-        " Google Maps"
+        " Express.js",
+        " MongoDB Atlas",
+        " JWT Authentication",
+        " REST API",
+        " Google Maps API",
+        " Geolocation",
+        " Netlify",
+        " Render"
       ]
     },
     {
@@ -90,8 +99,14 @@
       "description": "Arduino-based IoT project measuring real-time water flow rates using sensors.",
       "stack": [
         "Arduino",
-        " C++",
-        " IoT"
+        " ESP32",
+        " Water Flow Sensor (Hall-Effect)",
+        " C/C++",
+        " Arduino IDE",
+        " Wi-Fi",
+        " HTTP/MQTT",
+        " IoT Cloud Dashboard (ThingSpeak)",
+        " LCD/OLED Display"
       ]
     },
     {
@@ -101,9 +116,15 @@
       "github": "https://github.com/PallabBG/Lumo-AI-Advanced-Smart-Chatbot",
       "description": "Advanced chatbot with dark/light modes, answering queries with create/delete chat options.",
       "stack": [
-        "React",
-        " Python",
-        " CSS"
+        "HTML5",
+        " CSS3",
+        " JavaScript",
+        " Node.js",
+        " Express.js",
+        " AI API (LLM-based)",
+        " REST API",
+        " Netlify",
+        " Render"
       ]
     },
     {
