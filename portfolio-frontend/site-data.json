@@ -105,6 +105,28 @@
         " Python",
         " CSS"
       ]
+    },
+    {
+      "github": "https://github.com/PallabBG/ecoscan-ai",
+      "live": "https://ecoscan-ai.netlify.app/",
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/projects/EcoScan%20Thumbnail.png?raw=true",
+      "name": "EcoScan AI – Smart Waste Identification & Recycling Assistant",
+      "description": "AI-powered sustainability web app to identify waste from images and guide users to proper recycling and disposal with gamification and nearby center suggestions.",
+      "stack": [
+        "HTML5",
+        " CSS3",
+        " JavaScript",
+        " Node.js",
+        " Express.js",
+        " MongoDB Atlas",
+        " Google Gemini Vision API",
+        " JWT Authentication",
+        " Leaflet.js",
+        " OpenStreetMap",
+        " Netlify",
+        " Render",
+        " Gmail SMTP"
+      ]
     }
   ],
   "experience": [
