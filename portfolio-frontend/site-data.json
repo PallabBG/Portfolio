@@ -67,6 +67,28 @@
         " VS Code",
         " Postman"
       ]
+    },
+    {
+      "title": "Data Analytics",
+      "icon": "chart-line",
+      "tags": [
+        "Data Analysis",
+        " Data Modeling"
+      ]
+    },
+    {
+      "title": "Data Visualization",
+      "icon": "chart-bar",
+      "tags": [
+        "Data Visualization Tools"
+      ]
+    },
+    {
+      "title": "Productivity & Data Tools",
+      "icon": "table",
+      "tags": [
+        "Spreadsheet Skills"
+      ]
     }
   ],
   "projects": [
@@ -168,6 +190,12 @@
       "company": "Innovation Competition | Future Institute",
       "duration": "MAR 2025",
       "description": "Held on 21 March 2025 (2nd Sem). Developed \"AquaFlow\", a smart water monitoring system using Arduino, C++, and Flow Sensors (YF-S201)."
+    },
+    {
+      "role": "Data Analytics Virtual Intern",
+      "company": "Deloitte – Forage Virtual Experience Program",
+      "duration": "JAN 2026",
+      "description": "Completed a Deloitte-designed Data Analytics job simulation involving real-world business scenarios. Performed data analysis and basic forensic data tasks to extract insights and support decision-making processes."
     }
   ],
   "education": [
@@ -222,6 +250,12 @@
       "title": "Inception 2025",
       "issuer": "Innovative Project (FIEM)",
       "year": "2025"
+    },
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/Data%20Analytics%20Job_completion_certificate(Deloitee)_page-0001.jpg",
+      "title": "Deloitte Data Analytics Job Simulation",
+      "issuer": "Deloitte (via Forage)",
+      "year": "2026"
     }
   ],
   "socials": [
