@@ -28,27 +28,29 @@
   },
   "skills": [
     {
-      "title": "Data Structures",
+      "title": "Programming Fundamentals",
       "icon": "brain",
       "tags": [
-        "DSA in C",
+        "Data Structures (C)",
+        " Programming",
+        "  Software Development",
         " Problem Solving",
         " Logic Building"
       ]
     },
     {
-      "title": "Backend",
+      "title": "Backend Development",
       "icon": "server",
       "tags": [
         "Node.js",
         " Express.js",
         " REST API",
-        " C",
-        " Python"
+        " Python Programming",
+        " C"
       ]
     },
     {
-      "title": "Frontend",
+      "title": "Frontend Development",
       "icon": "laptop-code",
       "tags": [
         "React.js",
@@ -59,7 +61,7 @@
       ]
     },
     {
-      "title": "Tools & DB",
+      "title": "Tools, Databases & Version Control",
       "icon": "tools",
       "tags": [
         "MongoDB",
@@ -69,7 +71,7 @@
       ]
     },
     {
-      "title": "Data Analytics",
+      "title": "Data Analytics & Insights",
       "icon": "chart-line",
       "tags": [
         "Data Analysis",
@@ -84,10 +86,27 @@
       ]
     },
     {
-      "title": "Productivity & Data Tools",
+      "title": "Productivity & Data Handling",
       "icon": "table",
       "tags": [
         "Spreadsheet Skills"
+      ]
+    },
+    {
+      "title": "Professional Skills",
+      "icon": "comments",
+      "tags": [
+        "Formal Communication",
+        " Planning"
+      ]
+    },
+    {
+      "title": "Cyber Security Fundamentals",
+      "icon": "shield-halved",
+      "tags": [
+        "Computer Networking",
+        " Log Analysis",
+        " Web Security"
       ]
     }
   ],
@@ -196,6 +215,18 @@
       "company": "Deloitte – Forage Virtual Experience Program",
       "duration": "JAN 2026",
       "description": "Completed a Deloitte-designed Data Analytics job simulation involving real-world business scenarios. Performed data analysis and basic forensic data tasks to extract insights and support decision-making processes."
+    },
+    {
+      "role": "Technology Virtual Intern",
+      "company": "Deloitte – Forage Virtual Experience Program",
+      "duration": "JAN 2026",
+      "description": "Completed a Deloitte-designed Technology job simulation involving coding and software development tasks. Gained hands-on exposure to programming fundamentals, problem-solving, and structured software development practices."
+    },
+    {
+      "role": "Cyber Security Virtual Intern",
+      "company": "Deloitte – Forage Virtual Experience Program",
+      "duration": "JAN 2026",
+      "description": "Completed a Deloitte-designed Cyber Security job simulation involving foundational cyber security concepts. Gained exposure to security awareness, risk identification, and basic cyber threat analysis through practical tasks."
     }
   ],
   "education": [
@@ -254,6 +285,18 @@
     {
       "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/Data%20Analytics%20Job_completion_certificate(Deloitee)_page-0001.jpg?raw=true",
       "title": "Deloitte Data Analytics",
+      "issuer": "Deloitte (via Forage)",
+      "year": "2026"
+    },
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/Technology%20Job%20Simulation_completion_certificate_page-0001.jpg?raw=true",
+      "title": "Deloitte Technology Job Simulation",
+      "issuer": "Deloitte (via Forage)",
+      "year": "2026"
+    },
+    {
+      "image": "https://github.com/PallabBG/portfolio_images/blob/main/assets/certificates/Cyber%20Job%20Simulation_completion_certificate_page-0001.jpg?raw=true",
+      "title": "Deloitte Cyber Job Simulation",
       "issuer": "Deloitte (via Forage)",
       "year": "2026"
     }
